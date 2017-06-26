@@ -1,0 +1,117 @@
+.top-nav {
+  height: 75px;
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #d9dada;
+  color: $main-grey;
+  background: #fff;
+}
+
+.top-nav__logo {
+  display: flex;
+  align-items: flex-end;
+}
+
+.top-nav__menu {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.top-nav__menu-el {
+  padding: 10px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.top-nav__menu-el-link {
+  text-decoration: none;
+  color: $main-grey;
+  position: relative;
+  &:hover {
+    color: $main-blue;
+    &::before {
+      position: absolute;
+      top: -30px;
+      transform: translateX(-50%);
+      left: 50%;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 10px 0 10px;
+      border-color: $main-blue transparent transparent transparent;
+    }
+  }
+}
+
+.top-nav__menu-el-link--active {
+  color: $main-blue;
+  position: relative;
+  &::before {
+    position: absolute;
+    top: -30px;
+    transform: translateX(-50%);
+    left: 50%;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: $main-blue transparent transparent transparent;
+  }
+}
+
+.top-nav__menu-el--dropdown {
+  padding-right: 20px;
+  cursor: pointer;
+  &::after {
+    position: absolute;
+    top: 16px;
+    right: 0;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: $main-blue transparent transparent transparent;
+  }
+}
+
+.top-nav__user {
+  min-width: 340px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.top-nav__popup {
+  width: 350px;
+  padding: 20px 50px;
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #008ed6;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  top: 60px;
+  background: #fff;
+}
+
+.top-nav__popup-el {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 0;
+  border-bottom: 1px solid $secondary-grey;
+  a {
+    color: $main-grey;
+    text-decoration: none;
+    &:hover {
+      color: $main-blue;
+    }
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+}

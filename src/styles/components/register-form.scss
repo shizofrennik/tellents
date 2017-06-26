@@ -1,0 +1,45 @@
+.register-form {
+  width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  background: white;
+  padding: 20px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px $main-grey;
+}
+
+.register-form__body {
+  width: 540px;
+  margin: 0 auto;
+}
+
+.register-form__header {
+  color: $main-blue;
+  font-size: 49px;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.register-form__join {
+  font-size: 25px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.4;
+  color: $main-grey;
+  margin: 50px 0;
+}
+
+.register-form__form {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.register-form__sign-in-link {
+  display: inline-block;
+  text-decoration: none;
+  color: $main-blue;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 20px 0
+}

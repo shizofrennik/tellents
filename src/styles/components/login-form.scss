@@ -1,0 +1,36 @@
+.login-form {
+  width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  background: white;
+  padding: 20px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px $main-grey;
+}
+
+.login-form__body {
+  width: 540px;
+  margin: 0 auto;
+}
+
+.login-form__header {
+  color: $main-grey;
+  font-size: 30px;
+  font-weight: 400;
+  display: block;
+}
+
+.login-form__form {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.login-form__sign-in-link {
+  display: inline-block;
+  text-decoration: none;
+  color: $main-blue;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 20px 0
+}

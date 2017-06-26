@@ -1,0 +1,24 @@
+.input-wrapper {
+  margin-bottom: 15px;
+}
+
+.input {
+  height: 60px;
+  width: 100%;
+  border-radius: 30px 30px 30px 30px;
+  border: 2px solid $green;
+  background-color: lighten($green, 80%);
+  padding: 17px 32px;
+  font-size: 16px;
+  color: #334965;
+  &:focus {
+    outline: none;
+  }
+}
+
+.input__info {
+  display: block;
+  text-align: left;
+  color: $green;
+  padding: 0 32px;
+}
