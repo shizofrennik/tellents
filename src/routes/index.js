@@ -15,7 +15,7 @@ export const createRoutes = (store) => ({
   childRoutes : [
     CounterRoute(store),
     RegisterForm,
-    SignInForm
+    SignInForm(store)
   ]
 })
 

@@ -2,11 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
 import './styles/main.scss'
-
 // Store Initialization
 // ------------------------------------
 const store = createStore(window.__INITIAL_STATE__)
-
+window.reduxStore = store;
 // Render Setup
 // ------------------------------------
 const MOUNT_NODE = document.getElementById('root')

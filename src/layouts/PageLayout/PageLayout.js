@@ -1,6 +1,9 @@
 import React from 'react'
-import { IndexLink, Link } from 'react-router'
+import { IndexLink, Link, browserHistory } from 'react-router'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { signIn, signOut, isAuth } from '../../store/auth'
 
 export class PageLayout extends React.Component {
     constructor() {
@@ -8,6 +11,10 @@ export class PageLayout extends React.Component {
         this.state = {
             popup: false
         }
+    }
+
+    componentWillMount() {
+        this.props.isAuth();
     }
 
     _popupToggle = () => {
@@ -18,20 +25,32 @@ export class PageLayout extends React.Component {
 
     _renderPopup() {
         if(this.state.popup) {
-            return (
-                <ul className="top-nav__popup">
-                    <li className="top-nav__popup-el">
-                        <Link to="/register" onClick={this._popupToggle}>Register</Link>
-                    </li>
-                    <li className="top-nav__popup-el">
-                        <Link to="/login" onClick={this._popupToggle}>Sign in</Link>
-                    </li>
-                </ul>
-            )
+            let {auth, signOut} = this.props;
+            if(!auth) {
+                return (
+                    <ul className="top-nav__popup">
+                        <li className="top-nav__popup-el">
+                            <Link to="/register" onClick={this._popupToggle}>Register</Link>
+                        </li>
+                        <li className="top-nav__popup-el">
+                            <Link to="/login" onClick={this._popupToggle}>Sign in</Link>
+                        </li>
+                    </ul>
+                )
+            } else {
+                return (
+                    <ul className="top-nav__popup">
+                        <li className="top-nav__popup-el">
+                            <a href="#" onClick={() => signOut().then(() => browserHistory.replace('/'))}>Log out</a>
+                        </li>
+                    </ul>
+                )
+            }
         }
     }
 
     render() {
+        let {user, auth} = this.props;
         return (
             <div>
                 <div>
@@ -53,7 +72,7 @@ export class PageLayout extends React.Component {
                         </div>
                         <div className="top-nav__user">
                             <div className="top-nav__menu-el top-nav__menu-el--dropdown"
-                                 onClick={this._popupToggle}>Register / Sign in</div>
+                                 onClick={this._popupToggle}>{auth ? user : 'Register / Sign in'}</div>
                             {this._renderPopup()}
                         </div>
                     </nav>
@@ -88,4 +107,20 @@ PageLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export default PageLayout
+const mapStateToProps = state => {
+    let {auth, user} = state.auth;
+    return {
+        auth,
+        user
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        signIn,
+        signOut,
+        isAuth
+    }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageLayout);

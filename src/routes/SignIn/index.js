@@ -1,7 +1,8 @@
 import SignIn from './components/SignIn'
+import { checkAuth } from '../../store/auth'
 
-// Sync route definition
-export default {
+export default (store) => ({
     path: '/login',
-    component : SignIn
-}
+    component: SignIn,
+    onEnter: checkAuth
+});

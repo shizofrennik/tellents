@@ -21,6 +21,11 @@
   display: block;
 }
 
+.login-form__error {
+  color: $dark-red;
+  font-size: 24px;
+}
+
 .login-form__form {
   width: 400px;
   margin: 0 auto;

@@ -1,7 +1,9 @@
 import { injectReducer } from '../../store/reducers'
+import { checkAuth } from '../../store/auth'
 
 export default (store) => ({
   path : 'counter',
+  onEnter: checkAuth,
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point
